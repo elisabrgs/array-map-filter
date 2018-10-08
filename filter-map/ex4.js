@@ -64,6 +64,26 @@ En prenant les deux exemples d'arguments d'entrée, on obtiendrait ceci en sorti
 */
 
 function getActivitiesMembers(activities, persons) {
+
+  return activities.map((activity) => {
+
+    let personActivity = persons.filter((person) => {
+      return person.activities.join(" ").includes(activity);
+    }).map((person) => {
+      return person.name
+    });
+
+    let obj = {
+      activity : activity,
+      persons: personActivity
+    }
+    
+    return obj;
+  });
+    
+  
+
+
 }
 
 
